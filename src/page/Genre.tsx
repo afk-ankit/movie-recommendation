@@ -1,9 +1,9 @@
 import { GENRES } from "@/constants/genres";
 import { Genre } from "@/types/api-response";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../ui/button";
-import { ScrollArea } from "../ui/scroll-area";
-import GenreItem from "./InterestItem";
+import { Button } from "../components/ui/button";
+import { ScrollArea } from "../components/ui/scroll-area";
+import GenreItem from "../components/genre/InterestItem";
 import { useUserStore } from "@/store/useUserStore";
 
 const GenreForm = () => {

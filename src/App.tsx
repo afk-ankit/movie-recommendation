@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/common/Header";
-import GenreForm from "./components/register/Genre";
+import GenreForm from "./page/Genre";
 import { Toaster } from "./components/ui/sonner";
 import Home from "./page/Home";
 import MovieDetails from "./components/movie/MovieDetails";
