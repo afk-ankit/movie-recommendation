@@ -8,7 +8,6 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { Input } from "../ui/input";
-import { useDebounceValue } from "usehooks-ts";
 
 const Header = () => {
   const location = useLocation();
@@ -20,18 +19,14 @@ const Header = () => {
     location.pathname
   );
   const navigate = useNavigate();
-  const [debouncedValue, setDebouncedValue] = useDebounceValue(value, 500);
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    setDebouncedValue(e.target.value);
-  };
-  useEffect(() => {
-    if (location.pathname.includes("search") && debouncedValue === "") {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (value === "") {
       navigate("/");
-    } else if (location.pathname.includes("search") && debouncedValue) {
-      navigate(`/search?q=${encodeURIComponent(debouncedValue.trim())}`);
+    } else {
+      navigate(`/search?q=${value}`);
     }
-  }, [debouncedValue, navigate, location.pathname]);
+  };
 
   useEffect(() => {
     if (searchQuery) setValue(searchQuery);
@@ -61,12 +56,21 @@ const Header = () => {
       )}
       {!hideSearchAndProfile && (
         <div className="flex gap-8 items-center">
-          <Input
-            className="w-[300px] ml-auto"
-            placeholder="search for your favourite movie genre..."
-            value={value}
-            onChange={handleSearchChange}
-          />
+          <form onSubmit={handleSubmit}>
+            <Input
+              className="w-[300px] ml-auto"
+              placeholder="search for your favourite movie genre..."
+              value={value}
+              onChange={(e) => {
+                if (e.target.value == "") {
+                  navigate("/");
+                  setValue(e.target.value)
+                } else {
+                  setValue(e.target.value);
+                }
+              }}
+            />
+          </form>
           <Avatar>
             <AvatarImage src={avatarUrl} />
             <AvatarFallback>CN</AvatarFallback>
