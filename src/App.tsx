@@ -9,6 +9,7 @@ import Profile from "./page/Profile";
 import WatchList from "./page/WatchList";
 import Explore from "./page/Explore";
 import Search from "./page/Search";
+import Footer from "./components/common/Footer";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
       <Toaster />
     </main>
