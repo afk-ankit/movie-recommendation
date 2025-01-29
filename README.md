@@ -1,51 +1,117 @@
-# React + TypeScript + Vite
+# Watch Now
+
+Watch Now is a movie recommendation application built with React, TypeScript, and Vite. It allows users to explore, search, and manage their favorite movies. The application integrates with The Movie Database (TMDB) API to fetch movie data.
 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Watch Now is a movie recommendation application built with React, TypeScript, and Vite. It allows users to explore, search, and manage their favorite movies. The application integrates with The Movie Database (TMDB) API to fetch movie data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Home Page**: Displays a list of movies based on the user's selected genres.
+- **Explore Page**: Allows users to explore top-rated, recent releases, and popular movies.
+- **Search**: Users can search for movies by title.
+- **Movie Details**: Provides detailed information about a selected movie, including trailers and watch providers.
+- **Watchlist**: Users can add movies to their watchlist for later viewing.
+- **Profile**: Users can create and update their profile with a custom avatar.
+- **Genre Selection**: Users can select their favorite genres to personalize their movie recommendations.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Pages
 
-- Configure the top-level `parserOptions` property like this:
+- **Home**: Displays movies based on selected genres.
+- **Explore**: Shows top-rated, recent releases, and popular movies.
+- **Search**: Allows users to search for movies.
+- **Movie Details**: Provides detailed information about a movie.
+- **Watchlist**: Displays the user's watchlist.
+- **Profile**: Allows users to create and update their profile.
+- **Genre Selection**: Allows users to select their favorite genres.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Hosted Link
+
+You can access the hosted application at [Watch Now](https://watchnow.avocadorable.in).
+
+## Video Explanation
+
+For a detailed explanation of the project, watch the video [here](https://youtu.be/Fr6NolHChXM?si=8Iv_Qy7VyEQDUJkZ).
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/watch-now.git
+   cd watch-now
+
+
+## Features
+
+- **Home Page**: Displays a list of movies based on the user's selected genres.
+- **Explore Page**: Allows users to explore top-rated, recent releases, and popular movies.
+- **Search**: Users can search for movies by title.
+- **Movie Details**: Provides detailed information about a selected movie, including trailers and watch providers.
+- **Watchlist**: Users can add movies to their watchlist for later viewing.
+- **Profile**: Users can create and update their profile with a custom avatar.
+- **Genre Selection**: Users can select their favorite genres to personalize their movie recommendations.
+
+## Pages
+
+- **Home**: Displays movies based on selected genres.
+- **Explore**: Shows top-rated, recent releases, and popular movies.
+- **Search**: Allows users to search for movies.
+- **Movie Details**: Provides detailed information about a movie.
+- **Watchlist**: Displays the user's watchlist.
+- **Profile**: Allows users to create and update their profile.
+- **Genre Selection**: Allows users to select their favorite genres.
+
+## Installation Guide
+
+1. First, clone the repository:
+```bash
+git clone https://github.com/yourusername/watch-now.git
+cd watch-now
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Set up environment variables:
+   - Copy the contents of `.env.dummy` to a new file named `.env`:
+   ```bash
+   cp .env.dummy .env
+   ```
+   - Open `.env` and update the following variables:
+   ```
+   VITE_API_ACCESS_TOKEN=YOUR_ACTUAL_TMDB_ACCESS_TOKEN
+   VITE_BASE_URL=https://api.themoviedb.org/3
+   VITE_IMAGE_URL=https://image.tmdb.org/t/p/original
+   VITE_VIDEO_LINK=https://www.youtube.com/watch?v=
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. To get your TMDB API access token:
+   - Visit [TMDB Authentication Page](https://developers.themoviedb.org/3/getting-started/authentication)
+   - Create an account if you haven't already
+   - Go to your account settings
+   - Click on "API" in the left sidebar
+   - Request an API key by filling out the form
+   - Once approved, generate an API access token
+   - Copy the access token and paste it in your `.env` file
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+4. Install dependencies:
+```bash
+npm install
 ```
+
+5. Build the application:
+```bash
+npm run build
+```
+
+6. Start the preview server:
+```bash
+npm run preview
+```
+
+The application should now be running on `http://localhost:4173` (or another port if 4173 is in use).
+
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
