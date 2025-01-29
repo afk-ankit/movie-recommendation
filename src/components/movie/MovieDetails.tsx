@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { Movie, Provider } from "@/types/api-response";
 import { Button } from "../ui/button";
 import WatchProvider from "./WatchProvider";
+import SimilarMovie from "./SimilarMovie";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -105,6 +106,9 @@ const MovieDetails = () => {
           {renderProviderSection(watchProvider?.results.IN?.buy, "Buy")}
           {renderProviderSection(watchProvider?.results.IN?.rent, "Rent")}
         </div>
+      </div>
+      <div className="px-8 pb-12">
+        {movieData && <SimilarMovie id={movieData?.id}/> }
       </div>
     </>
   );
